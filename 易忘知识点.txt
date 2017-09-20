@@ -1,0 +1,9 @@
+	
+	
+	
+key in obj   // 指的是对象的键
+key in arr   // 指的是数组的索引           key of arr // key 是 arr的值
+nodejs 导入模块
+const module_name = require('./file_name')   // file_name可以不带后缀;
+	
+	
