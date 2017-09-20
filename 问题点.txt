@@ -1,0 +1,1 @@
+1.javaScript 单线程和异步机制;   //http://www.cnblogs.com/sxz2008/p/6513619.html
