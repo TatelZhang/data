@@ -1,0 +1,55 @@
+import Vuex from 'vuex'
+Vue.use(Vuex);
+
+var store = new Vuex.Store({
+	state:{		//公共状态
+		common: somedata
+	},
+	mutations:{  // 被触发的事件;
+		eventName(state, data){
+			state.common = data;  // 更新state
+		}
+	},
+	actions:{    // 异步调用，只能通过调用mutation控制 state
+		asyncEvent(context, data){
+			// 事件方法， 异步请求
+			context.commit('eventName', data);   //context为这个Store
+		}
+	}
+	});
+	
+实例传入：
+new Vue({
+	store
+});
+
+
+mutations 方式：commit方法
+组件获取state：
+this.$store.state.common;
+触发事件：
+this.$store.commit("eventName", data);     // store 为组件的选项
+
+
+actions 方式：
+触发事件：
+this.$store.dispatch("asyncEvent", data);
+
+
+// 数据中心 模型
+// moudleA.js
+// 定义state,getters,....
+// 导出
+export default {
+	state,
+	getters,
+	actions,
+	mutations
+} 
+
+//引用
+import moudleA from './moudleA'
+new Vuex.Store({
+	moudleA, // 使用
+});
+

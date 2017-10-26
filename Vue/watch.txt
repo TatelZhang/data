@@ -1,0 +1,12 @@
+new Vue({
+	el: "",
+	data: {
+		hello: ''
+	},
+	watch: {
+		hello: function(new_val, old_val){  // 监听数据的变化
+		   // 处理方式
+		   this.hello // 为新的值
+		}
+	}
+});

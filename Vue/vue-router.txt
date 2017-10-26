@@ -1,0 +1,31 @@
+引入路由
+import Router from 'vue-router'
+
+使用中间件
+Vue.use(Router);
+
+配置路由
+var router = new Router({
+	mode: 'history', // h5路由
+	routes: [
+		{
+			path: '/', 
+			component: Compname, 
+			redirect: '/hello' // 重定位 '/' 到 '/hello'
+		}
+	]
+});
+
+new Vue({
+	router // 实例中引入路由
+
+})；
+
+路由参数：
+{path: '/path/:name', component:Compname}                // 在组件模板中使用参数  $route.params.name  //组件中： this.$route.params
+
+this.$route.path // 获取当前页面的路径
+
+// 路由切换
+
+this.$router.push({paht: '/target'})

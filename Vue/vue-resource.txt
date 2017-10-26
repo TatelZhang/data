@@ -1,0 +1,10 @@
+import VueResource from 'vue-resouce'
+
+Vue.use(VueResource);
+
+在组件内部调用：
+get请求
+this.$http.get(url).then(function(success){}, function(err){});
+
+post请求
+this.$http.post(url, {/** 一些请求数据 */}).then(function(success){}, function(err){});

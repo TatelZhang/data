@@ -1,0 +1,12 @@
+new Vue({
+	el: '#app',
+	data:{
+		a: 1,
+	},
+	created: function(){
+		// do something
+	}
+});
+
+
+实例生命周期：
