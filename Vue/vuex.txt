@@ -53,3 +53,5 @@ new Vuex.Store({
 	moudleA, // 使用
 });
 
+
+
