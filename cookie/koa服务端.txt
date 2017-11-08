@@ -1,0 +1,12 @@
+// 设置cookie
+ctx.cookie.set(name, value, [options]);
+options:
+signed: 是否要做签名
+expires: cookie 有效时间
+domain: 域
+secure: false 表示通过HTTP协议发送；true表示通过HTTPS
+httpOnly: true表示cookie只能通过HTTP协议发送
+
+
+// 获取cookie 
+ctx.cookie.get(name, [options]);

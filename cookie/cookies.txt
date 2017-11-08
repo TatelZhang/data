@@ -1,0 +1,31 @@
+一、浏览器端
+
+// 获取全部cookie 
+document.cookie;
+var en = escape(str) // 编码，返回字符串
+unescape(en)         // 解码，返回字符串
+
+// 设置cookie
+function setCookie(name, value, expire){
+	var expireDate = expire| 
+}
+
+
+// 获取cookie
+function getCookie(name){
+	var arr, reg = new RegExp("(^|)"+ name+"=([^;]*)(;|$)")
+	arr = document.cookie.match(reg);
+	if(arr){
+		return unescape(arr[2]);
+	}
+	else{
+		return null
+	}
+}
+
+二、服务器端
+服务器端会向浏览器发送一个响应：要求创建cookie
+Set-Cookie: value [;expires=date][;domain=domain][;path=path][;secure]
+expires： 表示cookie 有效时期;若不设置,则寿命仅限于单一的会话;设置为过去,则删除cookie
+domain: 默认情况为设置成创建该cookie的页面所在域名
+path: 在域名核实完成之后
