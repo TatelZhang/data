@@ -1,0 +1,40 @@
+// 引入
+const Sequelize = require('sequelize');
+
+// 创建实例
+var sequelize = new Sequelize(database, [username=null], [password=null], [options={}]);
+
+// 定义模型, 告诉Sequelize 如何映射数据库表
+var Model = sequelize.define('modelname', {props}, options) // props指定列名和数据类型
+
+创建表：
+Model.sync({force: true})  // force: true 会删掉表后再创建表
+
+以下在async函数中执行；
+// 增加
+(async ()=>{
+	await Model.create({data});
+})();
+
+// 查询
+(async ()=>{
+	var res = await Model.findAll({
+		where: {
+			name: 'doge' // 列名和值
+		}
+	})
+	console.log(res)   // 返回一个包含查询结果的列表 [row]
+})();
+
+// 更改
+(async ()=>{
+	var some = await Model.query(); // 返回 [row]
+	row.prop = "asdasd"
+	await row.save()
+	
+})();
+
+// 删除
+(async ()=>{
+	await row.destory();
+})()
