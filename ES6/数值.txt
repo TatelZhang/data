@@ -1,0 +1,8 @@
+二进制：0b 或 0B
+八进制：0o 或 0O
+十六进制： 0x 或 0X
+
+
+Number.isFinite() // 判断是否有限
+Number.isNaN()  // 判断是否为数值
+

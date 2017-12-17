@@ -1,0 +1,18 @@
+@media screen and (max-width:1200px){//style}
+
+// 声明式编程
+
+@media 媒体类型，媒体类型 （筛选条件）{}
+
+栅格系统：容器
+		// row 行
+		// column 列
+float, position, inlineblock, flex
+
+1.媒体类型：
+all //所有类型
+print //用于打印机和打印预览
+screen //用于电脑屏幕，平板，智能手机
+speech	// 屏幕阅读器等发声装备
+
+媒体功能:

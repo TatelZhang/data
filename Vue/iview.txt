@@ -1,0 +1,11 @@
+//引入 iView:	
+import iView from 'iview'
+
+// 使用iview
+Vue.use(iView)
+
+组件
+// Button 
+type: 颜色;shape:circle;icon;size:small,large;long;disabled;loading
+
+//ButtonGroup

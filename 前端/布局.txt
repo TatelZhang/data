@@ -1,0 +1,3 @@
+layout 布局
+fluid 流动布局 
+solid 固定布局

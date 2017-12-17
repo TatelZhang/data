@@ -1,0 +1,27 @@
+// 使用方式
+render: function（createElement){
+	return createElement('tagName', options)
+}
+
+render: (h)=>h(component, )
+
+
+约束：
+所有组件树中,如果VNode是组件，或含有组件的slot，那么VNode必须唯一。
+// 错误1：子组件重复
+	var Child = {render: (h)=>h('p', 'text')}
+	Vue.component('ele',{
+		render: (h)=>{
+			var ChildNode = h(Child)
+			return h('div', [ChildNode, ChildNode])
+		}
+	})
+// 错误2：如果sloct包含了组件且重复
+	Vue.component('ele', {
+		render: (h)=> {
+		return h('div', [
+			this.$slots.default,
+			this.$slots.default
+		])
+		}
+	})

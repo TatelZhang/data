@@ -1,0 +1,34 @@
+function* gen (){
+	yield 'value';
+}
+function* gen1 (){
+	yield* gen()
+}
+var it = gen()
+yield  // 暂停执行,返回表达式后的值
+it.next()  // 启动Generator
+it.next('val')  // 替换yield的值
+it.throw('sad')  // 替换yield为throw
+it.return('sad')  // 替换yield为return
+yield  // 如果yield表达式后面跟的是一个遍历器对象，需要使用yield* 表明它返回的是一个遍历器对象;可以返回生成器中的yield值
+
+可遍历[Symbol.iterator](){return {遍历器对象（带next 方法）}};
+
+let delegatedIterator = (function* () {
+  yield 'Hello!';
+  yield 'Bye!';
+}());
+
+let delegatingIterator = (function* () {
+  yield 'Greetings!';
+  yield* delegatedIterator;
+  yield 'Ok, bye.';
+}());
+
+for(let value of delegatingIterator) {
+  console.log(value);
+}
+// "Greetings!
+// "Hello!"
+// "Bye!"
+// "Ok, bye."

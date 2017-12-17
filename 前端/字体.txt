@@ -1,0 +1,15 @@
+em是一个相对大小，可以指定到小数点后三位
+
+
+指定设备<meta name="viewport" content="width=device-width, initial-scale=1.0">
+指定最小宽度时的样式：
+媒体查询
+<link media="(min-width:500px)" rel="stylesheet" href="css/desk.css">
+<link media="(max-width:500px)" rel="stylesheet" href="css/mobile.css">
+
+<link media="(orientation:landscape) and (min-width:500px)" rel="stylesheet" href="url">
+orientation:landscape: 指定移动端样式为横向
+orientation:landscape：纵向
+
+
+http://dummyimage.com/width*height/背景色/前景色

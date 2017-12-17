@@ -1,0 +1,20 @@
+容器：
+	display:flex;
+	属性：
+		flex-direction: 主轴方向（布局方向）控制项目
+		flex-wrap: 轴线换行
+		flex-flow: 布局流（默认为水平排布，column为垂直排布）flex-wrap 与 flex-direction 属性简写
+		justify-content: 内容居中（容器中的items）
+		align-items: items 对齐基准（类似vertical-align）;用于对齐items
+		纵轴
+		
+		align-content: 多轴对齐
+
+项目属性：
+	order: <Integer> 数值越小，排列越靠前
+	flex-grow: flex流存在空隙，则放大
+	flex-shrink: 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+	flex-basis:
+	flex: flex grow ,flex-shrink, flex-basis 整合
+	align-self:
+	

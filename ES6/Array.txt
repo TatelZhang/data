@@ -1,0 +1,84 @@
+Array.length  // 0到2**32-1 的整数
+改变数组的长度，可以变换数组的内容
+a.sort((x,y)=>x-y) // 升序
+a.sort((x, y)=>y-x) // 降序
+
+会改变自身的方法：
+copyWithin、fill、pop、push、reverse、shift、sort、splice、unshift
+
+类方法
+1.Array.from(LikeArray, mapFn, thisArg)  // 方法从一个类似数组,或者可迭代对象中创建一个新的数组实例（有length属性）
+// mapFn, （可选参数）新数组中的每个元素都会执行该回调函数
+// thisArg （可选参数）执行mapFn时的this对象
+类似扩展运算符 ...
+
+2.Array.isArray() // 返回 true or false
+
+3.Array.of(el1[,el2[,el3[,...[,eln]]]])  // 创建一个具有可变数量参数的新数组实例 
+相同 new Array(el1[,el2[,el3[,...[,eln]]]])
+区别: Array.of(7) // [7] ;new Array(7)// [,,,,,,,]
+
+实例方法
+1.Array.prototype.concat() 
+//let arr = arr1.concat(arr2[,arr3[,...[,arrn]]]) 用于合并多个数组，返回新数组（不改变原有数组）
+等同于 let arr = [...arr1, ...arr2]
+
+2.arr.copyWithin(target, [start=0], [end=arr.length])
+将arr.slice(start, end) 数据复制到 arr.slice(target, target+end-start)
+
+3.arr.entries() // 返回一个新的Array Iterator 对象，遍历时返回索引和值 for of arr.entries()
+4.arr.keys() 	// 返回一个新的Array Iterator 对象，遍历时返回索引  for in arr  // for of arr.keys()
+5.arr.values()  // 返回一个新的Array Iterator 对象，遍历时返回值 for of arr // for of arr.values()
+
+6.arr.every(callback[, thisArg]) // 测试数组的所有元素是否都通过了回调函数的测试
+arr.every((e, i, arr)=>true or false, )
+
+7.arr.fill(value, start=0, end=arr.length)  //  使用value 填充数组.slice(start,end) 会改变自身：
+
+8.arr.filter(cb[, thisArg])  // 通过回调函数测试为true返回符合元素的数组
+
+9.arr.find(cb[, thisArg])   // 返回一个通过测试的元素 或 undefined （某些元素需要符合测试）
+
+10.arr.findIndex(cb[, thisArg]) // 返回通过测试元素的索引或 -1
+
+11. arr.forEach(cb[, thisArg])  // 为每个元素执行一次回调函数的操作，不返回值相当于for 循环
+
+12.arr.includes(searchElement, fromIndex=0)  // 从指定位置搜索元素，返回true or false （可以用于处理NaN); 大于fromIndex 返回false
+
+13.arr.indexOf(searchElement, fromIndex=0)   // 从指定位置搜索元素，返回索引（无法对查找NaN）
+
+14.arr.join()  // 将数组或LikeArray连接成字符串，返回字符串
+
+15.arr.lastIndexOf(searchElement[, fromIndex = arr.length -1])  // 从数组后面向前查找，返回index （fromIndex < 0 返回 -1）
+
+16.arr.map(cb(e,i,arr)[, thisArg])  // 返回一个新数组，每个元素都是回调函数的结果 （不处理空元素）
+
+17.arr.pop() // 删除数组最后一个元素的值并返回该元素,空数组返回undefined
+
+18.arr.push(el1, el2,...)  // 向数组尾部添加元素,返回数组的length
+
+19.arr.reduce(callback[, initialValue])  // 累加器，返回处理结果  
+[1,2,3,4,5,6,7,8].reduce((x,y)=>x+y, 0) // x+y 返回值会成为下一次执行reduce的x值，y值由数组提供
+
+20.arr.reduceRight(calback(prev, curr, index)[, initialValue])  // 从右向左执行
+
+21.arr.reverse() // 颠倒数组中元素位置，并返回新数组的引用（会改变原数组）
+
+22.arr.shift()  // 移除数组第一个元素，并返回该元素
+23.arr.unshift() // 向数组首部添加元素，返回数组长度
+
+24.arr.slice(start=0, end=arr.length) // 提取数组索引为[start, end)的部分，并返回
+
+25.arr.some(calback[, thisArg])  // 测试数组的某些元素是否都通过了回调函数的测试 返回 true or false
+
+26.arr.sort(compareFunction)  // 对数组进行排序 a.sort((x,y)=>x-y) // 升序; a.sort((x, y)=>y-x) // 降序
+
+27.arr.splice(start, count, item1, item2..) // 向数组删除元素或插入元素，返回删除元素的数组
+start 为开始位置， count 为删除元素个数， item1，item2 增加元素
+
+28.arr.toLocalString() // 返回一个字符串表示数组中的元素。数组中的元素将使用各自的toString()方法转换成字符串
+
+29.arr.toString() // 返回一个字符串，表示指定的数组及元素
+
+
+

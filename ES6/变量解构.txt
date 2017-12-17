@@ -1,0 +1,44 @@
+基本用法
+let [a,b,c] = [1,2,3,]
+let [a, ...rest] = [1,2,3,]
+结构不成功返回undefined
+
+默认值
+let [x=1] = [,,]
+
+undefined 触发默认值
+
+对象解构赋值
+let {foo, bar} = {foo:'', bar: ''}
+变量名不一致
+
+let {foo: target} = {foo: 'sss'}  // target = 'sss' foo为模式，target为变量
+
+let x;
+({x} = {x:1})
+
+字符串解构赋值
+let [a,b,c] = 'hello'
+let {length: len} = 'hello'
+
+
+函数参数解构赋值(传入参数结构需要与解构结构相符)
+function sum ([x,y]){
+	return x+y
+}
+sum([1,2]) 
+
+
+function hello ({x=0, y=0}={}){
+	console.log(x,y)
+}
+
+[1, undefined, 3].map((x=2)=>x)  // 当x为undefined时触发默认值
+
+
+不能使用圆括号的情况
+	1.变量声明语句
+	2.函数参数
+	3.赋值语句的模式
+非模式部分可以使用圆括号
+

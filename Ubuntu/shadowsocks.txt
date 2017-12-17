@@ -1,0 +1,28 @@
+1.安装pip
+apt-get install python3-pip 或 python-pip
+
+2.安装shadowsocks
+pip install shadowsocks	// 或者 apt install shadowsocks;
+
+3.配置文件：
+cd /etc/shadowsocks/config.json
+{
+    "server":"0.0.0.0",
+    "server_port":443,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"123456",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
+
+4.启动服务
+$ ssserver -c /etc/shadowsocks/config.json start
+停止服务
+$ ssserver -c /etc/shadowsocks/config.json stop
+
+5.设置开机启动
+$ chmod 755 /etc/shadowsocks/config.json
+在 /etc/rc.loacl 中加入
+$ /usr/bin/ssserver -c /etc/shadowsocks/config.json

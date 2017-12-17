@@ -1,0 +1,27 @@
+input 标签
+属性:
+max: 允许的最大值
+min 允许的最小值
+pattern 用于验证输入字段的模式
+required 输入字段是必须的
+step 输入字段的合法数字间隔
+
+/**非H5
+disabled: 是否禁用
+maxlength 最大字符长度
+readonly 输入值无法修改
+size 输入字段中的可见字符数*/
+类型:
+color
+date
+datetime
+datetime-local
+email
+month
+number
+range
+search
+tel
+time
+url
+week

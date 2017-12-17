@@ -1,0 +1,21 @@
+<form>新属性：
+autocomplete
+novalidate Boolean属性,规定在提交表单时不应该验证form或input域
+
+<input>新属性：
+autocomplete
+autofocus 页面加载时，域自动获取焦点
+form  表单外使用input域
+formaction :submit 和 :image 中指定表单提交位置，会覆盖form的action
+formenctype
+formnovalidate
+formtarget
+height & width
+list
+min & max
+multiple
+pattern
+placeholder
+required
+step
+

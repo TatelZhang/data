@@ -1,0 +1,6 @@
+1.for in  // 循环遍历对象自身的和继承的可枚举属性
+2. Object.keys(obj)  // 返回一个数组，包含自身（非继承）的所有可枚举属性的键名（不包含Symbol）。
+3.Object.getOwnPropertyNames(obj)  // 返回一个数组，包括自身的所有属性（包括不可枚举属性，但不包括Symbol属性）
+4.Object.getOwnPropertySymbols(obj)  // 返回一个数组，包含对象自身的所有Symbol属性
+5.Reflect.ownKeys(obj)  // 返回一个数组，包含对象自身的所有键名（包括，Symbol，字符串，不可枚举等）
+6.Object.getOwnPropertyDescriptors()  // 返回对象所有自身属性（不包含继承）

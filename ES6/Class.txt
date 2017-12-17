@@ -1,0 +1,17 @@
+class Parent{
+	constructor(){}
+}
+
+class Child extends Parent{
+	constructor(){ // 调用构造函数
+		super() // 调用父类构造函数
+	}
+	method(){} // 实例方法，用于实例继承，相当于Child.prototype.method
+	static method (){}  // 类方法,在类上面调用，用于类继承 相当于 Child.method
+}
+
+
+子类的构造来自于父类
+Child.__proto__ === Parent
+子类的原型构造来自父类的原型
+Child.prototype.__proto__ === Parent.prototype

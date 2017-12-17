@@ -1,0 +1,7 @@
+datalist 输入域选择框
+<input type='text' list='lisname'>
+<datalist id='lisname'>
+	<option value='value for input' />
+</datalist>
+keygen
+output

@@ -1,0 +1,36 @@
+1.块级作用域
+使用let 替代 var 
+全局使用const
+
+2.字符串
+静态字符串使用单引号'，动态字符串使用反引号`
+
+3.使用结构赋值（注意上下文问题）
+
+4.对象
+单行对象：最后一个成员不以逗号结尾
+多行对象：最后一个成员使用逗号结尾
+使用Object.assign 添加属性
+
+5.数组
+使用扩展运算符拷贝数组 var newArr = [...arr]
+使用Array.from(ArrayLike) 类似数组对象转换为数组
+
+6.函数
+立即执行函数可写成箭头函数
+使用箭头函数绑定this
+
+const boundMethod = (...params)=> method.apply(this, params)
+
+7.Map 结构
+key:value 数据结构使用Map，可遍历
+
+8.class
+取代prototype操作
+extends实现继承
+
+9.模块
+使用import替代require
+import 提供模块借口引用，模块变化能够体现到import中
+require 使用的是值拷贝，静态
+使用export 替代 module.exports
