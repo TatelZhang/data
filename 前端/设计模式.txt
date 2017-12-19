@@ -1,0 +1,84 @@
+1.构造函数模式 new 一个新对象
+function Person (name, age){
+	this.name = name
+	this.age = age
+}
+Person.prototype.sayName = function(){console.log(this.name)}} // 原型链继承
+
+2.工厂模式  // 返回一个新对象
+function createPerson(name, age){
+	var p = {
+		name,
+		age
+	}
+	p.sayName = function(){}
+	return p
+}
+
+3.混合模式 mixin 混合原型
+
+function Student(name, age, score){
+	Person.call(this, name, age)
+	this.score = score
+}
+Student.prototype = createMix(Person.prototype)  // 获取Person原型
+Student.prototype.sayHello = function () {}
+
+function createMix(p){
+	function F () {}
+	F.prototype = p
+	return new F()
+}
+
+4.单例模式 //  只实例化一次
+const xiaoming = (function(){
+	let instance
+	function init(name){
+		return {
+			name
+		}
+	}
+	return {
+		createPeople(name){
+			if(!instance){
+				instance = init(name)
+			}
+			return instance
+		}
+	}
+})()
+
+
+5.模块模式 
+词法作用域： 定义一个函数，他能访问的上下文是由定义时所在位置决定
+const person = (function(){
+	const xxx = 'xxx'
+	const method = function(){}
+	
+	return {
+		xxx,
+		method
+	}
+})() 
+
+6.订阅发布模式, 观察者模式？
+const $ = (function(){
+	const stack = {}
+	
+	function on (event, handler){
+		stack[event] = {handler}
+	}
+	function emit (event, arg){
+		if(!stack[event]) return 
+		stack[event].handler(arg)
+	}
+	function off (event){
+		delete stack[event]
+	}
+	return {
+		on,
+		emit,
+		off
+	}
+	
+})()
