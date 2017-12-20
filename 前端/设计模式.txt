@@ -66,11 +66,14 @@ const $ = (function(){
 	const stack = {}
 	
 	function on (event, handler){
-		stack[event] = {handler}
+		stack[event] = stack[event] || []
+		stack[event].push({handler})
 	}
 	function emit (event, arg){
 		if(!stack[event]) return 
-		stack[event].handler(arg)
+		for(let index in stack[event]){
+			stack[event][index].handler(arg)
+		}
 	}
 	function off (event){
 		delete stack[event]
