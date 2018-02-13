@@ -1,0 +1,6 @@
+1.端口占用查询
+	1)查看端口使用情况： $netstat
+	2)查看已经连接的服务端口： $netstat -a
+	3)查看所有服务端口： $netstat -ap
+	3)查看某个端口： netstat -ap | grep 10086
+	4)结束端口： kill 对应进程id

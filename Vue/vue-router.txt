@@ -28,7 +28,7 @@ this.$route.path // 获取当前页面的路径
 
 // 路由切换
 
-this.$router.push({paht: '/target'});
+this.$router.push({path: '/target'});
 this.$router.push({name: 'pathname'});
 this.$router.push('/');
 this.$route // 当前路由信息对象

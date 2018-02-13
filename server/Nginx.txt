@@ -12,7 +12,6 @@ nginx -s stop  :快速停止nginx
 其他的停止nginx 方式：
 
 ps -ef | grep nginx
-
  kill -QUIT 主进程号     ：从容停止Nginx
  kill -TERM 主进程号     ：快速停止Nginx
  pkill -9 nginx          ：强制停止Nginx
