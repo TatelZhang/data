@@ -22,7 +22,27 @@ $ ssserver -c /etc/shadowsocks/config.json start
 停止服务
 $ ssserver -c /etc/shadowsocks/config.json stop
 
+ssserver -c /etc/shadowsocks/config.json -d start 后台启动
+ssserver -c /etc/shadowsocks/config.json -d stop 后台停止
+
 5.设置开机启动
 $ chmod 755 /etc/shadowsocks/config.json
-在 /etc/rc.loacl 中加入
+vim /etc/rc.loacl 中加入
 $ /usr/bin/ssserver -c /etc/shadowsocks/config.json
+
+
+多用户配置：
+
+
+{
+"server":"",
+"local_address":"127.0.0.1",
+"local_port":1080,
+"port_password":{
+"8000":"123456",
+"8001":"123456"
+},
+"timeout":300,
+"method":"aes-256-cfb",
+"fast_open":false
+}
