@@ -10,5 +10,9 @@
 	移动：$mv s t
 	删除：$rm
 	创建：$mkdir
+	重命名： 重名名文件（夹）：mv命令，mv 原文件（夹）名 新文件（夹）名
 3.创建用户：
 	adduser
+	
+4.日志查看
+	如果日志在更新，如何实时查看 tail -f /var/log/messages

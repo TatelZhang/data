@@ -1,0 +1,37 @@
+1.安装：
+2.添加环境变量： 将安装文件下的/bin 文件 添加到 path
+
+3.创建数据库文件存放目录
+4.指定数据存放目录  mongod --dbpath 文件目录(绝对路径)
+5.最后一行为 waiting for connections on port 27017 表示启动成功
+
+6.创建日志文件存放目录  mongod -dbpath db文件目录 --logpath=文件夹\mongodb.log -- logappend
+7.安装为windows服务  sc create MongoDB(here) binPath= "D:\MongoDB\bin\mongod.exe --service --dbpath D:\MongoDB\data\db --logpath=D:\MongoDB\data\logs\mongodb.log --logappend"
+
+8.管理员权限下启动服务  net start MongoDB(here)   // 注：here同名
+
+
+使用配置文件：
+创建目录： 
+数据库： /data
+日志： /log
+配置文件目录及文件  /etc/mongodb.conf
+
+mongodb.conf
+dbpath=数据库路径
+logpath=  // 日志文件路劲
+logappend=true  // 错误日志采用追加模式，配置这个选项后 mongodb 的日志文件会追加到当前文件，而非新建
+journal=true // 启用日志文件，默认启用
+quiet=true  # 用于过滤一些无用的日志信息
+port=27017 # 默认端口号设置
+
+普通启动：
+mongod --config config文件
+
+创建别名启动
+sc create MongoDB(别名) binPath = "路径\mongod.exe --service --config = 配置文件路径"
+
+sc create MongoDB binPath = "C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe --service -config = F:\MongoDB\etc\mongodb.conf"
+
+启动(管理员权限下)：
+net start MongoDB

@@ -16,5 +16,16 @@ ps -ef | grep nginx
  kill -TERM 主进程号     ：快速停止Nginx
  pkill -9 nginx          ：强制停止Nginx
  
+ Nginx 配置：
+ 
+ location 规则
+ 
+ = /uri  精准匹配
+ ^~ /uri  对url路径进行前缀匹配,优先级在正则匹配前
+ ~ pattern   区分大小写正则匹配
+ ~* pattern   不区分大小写正则匹配
+ /uri     不带任何修饰符,前缀匹配,优先级在正则匹配后
+ / 		 通配符
+
  
  
