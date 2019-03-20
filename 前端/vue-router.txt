@@ -1,0 +1,63 @@
+1.使用vue-router
+	引入vue-router
+	创建router new VueRouter({routes:[{path: '', component: component}]})
+	在实例中使用 new Vue({router})
+	
+2.访问router
+	在任何组件中使用 this.$router 访问路由器， this.$route 访问当前路由
+
+3.路由编辑 如果存在子路由，父路由应该去掉name 字段
+	路由引入方法： 
+	component: component: component  
+	component: () => import('@/components/Another.vue')
+	component: resolve => require(['@/components/Another.vue'], resolve)
+4.路由跳转
+	<router-link to="path"></router-link>
+	this.$router.go(-1)
+	this.$router.push(path);
+	this.$router.push(path);
+	$router.push('path')  // 路径
+	$router.push({path: 'path'})  // 路径
+	$router.push({name: 'pathname', params: {params}})  // 命名路由
+	$router.push({name: 'pathname', query: {params}})  //  带查询参数
+	注意：添加path后 params 不会生效；动态路由匹配不能使用name
+	$router.replace() 使用方法相同，但不会在history 中留下记录
+	
+	
+5.动态路由匹配
+	':path'
+
+6.监听路由变化
+	在当前路由组件watch $route 可以监听下一级路由变化
+7.命名视图
+	为router-view 命名(<router-view name="name"></router-view>)，未命名默认为default
+	在路由中映射视图 {components: {default: cmp_default, nameA: cmp_A, ...}}
+8.重定向
+	redirect: 'path'
+	redirect: {name: 'name'}
+	redirect: to => {}
+9.别名 （为当前路由添加别名）
+
+10. 路由组件传参
+	在路由表中定义是否通过props传参 {props: true}; 包含命名视图 {props: {default: true, other: true}}
+	将跳转时的params 通过 传递组件的 props
+
+11.导航守卫 （全局）
+	Router.beforeEach(to: Route, from: Route, next: Function)
+	next() 回调钩子 继续下一步执行
+	next(false) 中断当前导航
+	next('/') 传入path、name、props或者router.push中的选项，注意做好判断，否者会出现栈溢出
+	执行顺序：beforeEach((to, from, next)) beforeResolve((to, from, each)) afterEach((to, from))
+	beforeEach next 执行 beforeResolve；  next() 后代码在 最后执行 
+	beforeResolve next 执行 afterEach
+12. 路由内守卫
+	beforeEnter (to, from, next)
+13.组件内守卫
+	beforeRouteEnter (to, from, next) 渲染组件对应路由被confirm前调用(next 之前) 不能获取实例（实例未创建） 可以通过next(vm => {}) 访问实例
+	beforeRouteUpdate(to, from, next) 当前路由改变，但组件被复用时调用 可以访问实例 this
+	beforeRouteLeave(to, from, next) 离开该组件时调用， 可以访问实例 this; (通常用于用户未保存当前修改的情况)
+	
+
+钩子函数执行顺序
+    beforeEach => beforeEnter => beforeRouteEnter => beforeResolve => afterEach
+	beforeRouteLeave => beforeEach => beforeEnter => beforeRouteEnter => beforeResolve => afterEach

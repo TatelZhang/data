@@ -1,0 +1,119 @@
+1.使用Vuex
+	Vue.use(Vuex)
+	const store = new Vuex.Store({
+		state: {}, // 数据仓库
+		mutations: {method1 (state) {}}, // 更新方法
+		actitions: {method2 (context) {context.commit(mutation)}},   // 异步更新方法
+		
+	})
+	new Vue({
+		store: store  // 使用Vuex
+	})
+2.mapState 辅助函数
+	import { mapState } from 'vuex
+	new Vue({
+		computed: mapState({
+			infoFromState: state => state.info 
+			infoFromState: 'info'  // 或者直接使用键名，
+			infoMixinThis () {
+				// 使用this需要用常规函数
+			}
+		})
+	})
+	// 展开
+	new Vue({
+		computed: {
+			computed1 () {},
+			...mapState({
+			
+			})
+		}
+	})
+	
+3.使用Getter 处理需要进行处理的数据 或者state较深的数据
+	new Vuex.Store({
+		getters: {
+			doState: state => {// 一些数据处理},
+			doOperateInVm: (state) => (fromVm) => {return operate(state, fromVm)}
+		}
+	})
+	在实例中使用 store.getters.doState 获取
+
+4.mapGetters 辅助函数
+	import mapGetters from 'vuex'
+	computed: {
+		...mapGetters({}),
+		...mapGetters(['gettername1'])
+	}
+	
+5.mapMutations 辅助函数
+	import mapMutations from 'vuex'
+	methods: {
+		...mapMutations({name: actualName})
+		...mapMutations([actualName])
+	}
+7.mapActions 辅助函数 同mapMutations
+
+6.触发事件
+	mutations
+	store.commit(mutation, params) 或 commit({type: mutations, ...params})
+	actitions
+	store.dispatch(action, params) 或 dispatch(type: actions, ...params)
+
+8.使用modules
+	const moduleA = {
+		state: {},
+		acitons: {},
+		getters: {},
+		mutations: {}
+	}
+	const moduleB = {}
+	new Vuex.Store({
+		moduleA,
+		moduleB
+	})
+
+	
+9.命名空间
+	默认情况下，模块内部的actions, mutations, getters 是注册在全局命名空间的，这样使得多个模块能够对同一mutation 或 action 作出相应；
+	为模块添加 namespaced: true, 他的所有getter、action、mutation 都会自动根据模块注册的路径调整命名
+	带命名空间 actions 只能访问当前命名空间 mutation (需要添加commit 或 dispatch 第三参数({root: 'true'}) 访问), 可以在 rootState 和 rootGetters 中访问 全局内容
+	
+	使用辅助函数:  mapState('some/module', {
+		a: state => state.a   // 获取指定模块state
+	})
+	
+	或者创建基于某个模块的命名空间辅助函数
+	import { createNamespacedHelpers } from 'vuex'
+	const { mapState, mapActions } = createNamespacedHelpers('some/nested/module')
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

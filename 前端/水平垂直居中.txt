@@ -1,0 +1,37 @@
+.container  父容器
+.box  当前需要水平垂直居中元素
+
+1.绝对定位 + margin: auto;
+为元素设置自动 margin 使其适应
+.container relative
+.box {
+	/** 以下属性皆为必要属性**/
+	position: absolute;
+	height:
+	width: 
+	margin: auto;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+2.绝对定位 + margin 反向偏移
+注意： 必须根据元素宽高来设置负margin， 需要固定元素高宽
+
+3.绝对定位 + transform反向偏移
+原理同2 偏移会根据元素宽度自动计算， css3
+
+4.display: table
+给容器外添加 父级为 display: table;
+为容器添加 display: table-cell; 设置 vertical-align: middle;
+将元素做为单元格内容处理
+
+5.display: inline-block;
+设置容器 text-align: center; 使内容为居中状态，设置伪元素 高度为100%； 宽度为0; 设置vertical-align: middle使兄弟元素以伪元素居中 
+元素设置为 display: inline-block; 为元素添加 vertical-align: middle 属性；
+
+6.flexbox
+display: flex;
+align-items: center;  // 垂直方向
+justify-content: center; // 水平方向
